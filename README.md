@@ -1,7 +1,7 @@
 # D4
 ## Downloads
  ```sh
-    git clone https://github.com/qdtrl/D4.git
+    git clone https://github.com/qdtrl/THP_W3_D4.git
     cd D4
  ```
 ## Install Gemfile
