@@ -39,6 +39,8 @@ class Player
                 cursor[0] > 0 ? cursor[0] -= 1 : next
             when " "
                 return cursor
+            when "q"
+                exit
             else
                 puts "\n/!\\     Mauvaise frappe    /!\\".colorize(:red)
                 sleep 2

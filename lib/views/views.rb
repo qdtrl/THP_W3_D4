@@ -1,7 +1,6 @@
 class Views
     attr_accessor :players, :game, :game_counter
     def initialize
-        print String.colors
         print "Entre le nom du joueur 1 > ".colorize(:cyan)
         @player1 = Player.new(gets.chomp)
         print "\nEntre le nom du joueur 2 > ".colorize(:cyan)
