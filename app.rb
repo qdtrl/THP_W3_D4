@@ -1,7 +1,15 @@
 require 'bundler'
 Bundler.require
    
-$:.unshift File.expand_path("./../lib", __FILE__)
-require 'scrapper'
+$:.unshift File.expand_path("./../lib/app", __FILE__)
+$:.unshift File.expand_path("./../lib/views", __FILE__)
+$:.unshift File.expand_path("./../db", __FILE__)
 
-MyClass.new.perform
+
+require 'morpion'
+require 'player'
+require 'views'
+require 'constants'
+
+run = Views.new
+run.perform
