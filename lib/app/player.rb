@@ -27,7 +27,7 @@ class Player
             print "\n\n" + "-" * 41 + "\n"
             puts "Bouge avec w, s, a, d et valide avec \" \" puis presse Entrer !".colorize(:blue)
             print "\n#{@name} est entrain de jouer > ".colorize(:cyan)
-            move = gets.chomp
+            move = STDIN.getch
             case move
             when "d"
                 cursor[1] < 2 ? cursor[1] += 1 : next

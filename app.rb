@@ -10,6 +10,8 @@ require 'morpion'
 require 'player'
 require 'views'
 require 'constants'
+require 'io/console'
+
 
 run = Views.new
 run.perform

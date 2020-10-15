@@ -3,7 +3,7 @@ class Views
     def initialize
         print "Entre le nom du joueur 1 > ".colorize(:cyan)
         @player1 = Player.new(gets.chomp)
-        print "\nEntre le nom du joueur 2 > ".colorize(:cyan)
+        print "Entre le nom du joueur 2 > ".colorize(:cyan)
         @player2 = Player.new(gets.chomp)
         @players = [@player1, @player2].shuffle
         @game = Morpion.new
