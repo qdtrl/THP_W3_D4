@@ -31,15 +31,15 @@ class Player
             case move
             when "d"
                 cursor[1] < 2 ? cursor[1] += 1 : next
-            when "a"
+            when "q"
                 cursor[1] > 0 ? cursor[1] -= 1 : next
             when "s"
                 cursor[0] < 2 ? cursor[0] += 1 : next
-            when "w"
+            when "z"
                 cursor[0] > 0 ? cursor[0] -= 1 : next
             when " "
                 return cursor
-            when "q"
+            when "e"
                 exit
             else
                 puts "\n/!\\     Mauvaise frappe    /!\\".colorize(:red)
