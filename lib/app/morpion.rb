@@ -19,10 +19,10 @@ class Morpion
 
     def fill_with_cross(cursor)
         if @map[cursor[0]][cursor[1]] == "-"
-            @map[cursor[0]][cursor[1]] = "X"
+            @map[cursor[0]][cursor[1]] = "X".colorize(:yellow)
             return false
         else
-            puts " \n/!\\ Tu ne peux mettre une croix sur une case pleine ! /!\\"
+            puts " \n/!\\ Tu ne peux mettre une croix sur une case pleine ! /!\\".colorize(:red)
             sleep 3
             return true
         end
@@ -30,10 +30,10 @@ class Morpion
 
     def fill_with_circle(cursor)
         if @map[cursor[0]][cursor[1]] == "-"
-            @map[cursor[0]][cursor[1]] = "O"
+            @map[cursor[0]][cursor[1]] = "O".colorize(:green)
             return false
         else
-            puts "\n/!\\ Tu ne peux mettre un cercle sur une case pleine ! /!\\"
+            puts "\n/!\\ Tu ne peux mettre un cercle sur une case pleine ! /!\\".colorize(:red)
             sleep 3
             return true
         end
@@ -41,25 +41,33 @@ class Morpion
 
     def is_win?(players)
         if is_full?(@map)
+            players[0].add_win_counter
+            players[1].add_win_counter
             puts "\nEgalitée !"
             return false
-        elsif (@map[0][0] == "O" && @map[0][1] == "O" && @map[0][2] == "O") || (@map[1][0] == "O" && @map[1][1] == "O" && @map[1][2] == "O") || (@map[2][0] == "O" && @map[2][1] == "O" && @map[2][2] == "O")
-            puts "\n#{players[1].name} a gagné.e !"
+        elsif (@map[0][0] == "O".colorize(:green) && @map[0][1] == "O".colorize(:green) && @map[0][2] == "O".colorize(:green)) || (@map[1][0] == "O".colorize(:green) && @map[1][1] == "O".colorize(:green) && @map[1][2] == "O".colorize(:green)) || (@map[2][0] == "O".colorize(:green) && @map[2][1] == "O".colorize(:green) && @map[2][2] == "O".colorize(:green))
+            puts "\n#{players[1].name} a gagné.e !".colorize(:green)
+            players[1].add_win_counter
             return false
-        elsif (@map[0][0] == "X" && @map[0][1] == "X" && @map[0][2] == "X") || (@map[1][0] == "X" && @map[1][1] == "X" && @map[1][2] == "X") || (@map[2][0] == "X" && @map[2][1] == "X" && @map[2][2] == "X")
-            puts "\n#{players[0].name} a gagné.e !"
+        elsif (@map[0][0] == "X".colorize(:yellow) && @map[0][1] == "X".colorize(:yellow) && @map[0][2] == "X".colorize(:yellow)) || (@map[1][0] == "X".colorize(:yellow) && @map[1][1] == "X".colorize(:yellow) && @map[1][2] == "X".colorize(:yellow)) || (@map[2][0] == "X".colorize(:yellow) && @map[2][1] == "X".colorize(:yellow) && @map[2][2] == "X".colorize(:yellow))
+            players[0].add_win_counter
+            puts "\n#{players[0].name} a gagné.e !".colorize(:yellow)
             return false
-        elsif (@map[0][0] == "O" && @map[1][0] == "O" && @map[2][0] == "O") || (@map[0][1] == "O" && @map[1][1] == "O" && @map[2][1] == "O") || (@map[0][2] == "O" && @map[1][2] == "O" && @map[2][2] == "O")
-            puts "\n#{players[1].name} a gagné.e !"
+        elsif (@map[0][0] == "O".colorize(:green) && @map[1][0] == "O".colorize(:green) && @map[2][0] == "O".colorize(:green)) || (@map[0][1] == "O".colorize(:green) && @map[1][1] == "O".colorize(:green) && @map[2][1] == "O".colorize(:green)) || (@map[0][2] == "O".colorize(:green) && @map[1][2] == "O".colorize(:green) && @map[2][2] == "O".colorize(:green))
+            players[1].add_win_counter
+            puts "\n#{players[1].name} a gagné.e !".colorize(:green)
             return false
-        elsif (@map[0][0] == "X" && @map[1][0] == "X" && @map[2][0] == "X") || (@map[0][1] == "X" && @map[1][1] == "X" && @map[2][1] == "X") || (@map[0][2] == "X" && @map[1][2] == "X" && @map[2][2] == "X")
-            puts "\n#{players[0].name} a gagné.e !"
+        elsif (@map[0][0] == "X".colorize(:yellow) && @map[1][0] == "X".colorize(:yellow) && @map[2][0] == "X".colorize(:yellow)) || (@map[0][1] == "X".colorize(:yellow) && @map[1][1] == "X".colorize(:yellow) && @map[2][1] == "X".colorize(:yellow)) || (@map[0][2] == "X".colorize(:yellow) && @map[1][2] == "X".colorize(:yellow) && @map[2][2] == "X".colorize(:yellow))
+            players[0].add_win_counter
+            puts "\n#{players[0].name} a gagné.e !".colorize(:yellow)
             return false
-        elsif (@map[0][0] == "O" && @map[1][1] == "O" && @map[2][2] == "O") || (@map[2][0] == "O" && @map[1][1] == "O" && @map[0][2] == "O")
-            puts "\n#{players[1].name} a gagné.e !"
+        elsif (@map[0][0] == "O".colorize(:green) && @map[1][1] == "O".colorize(:green) && @map[2][2] == "O".colorize(:green)) || (@map[2][0] == "O".colorize(:green) && @map[1][1] == "O".colorize(:green) && @map[0][2] == "O".colorize(:green))
+            puts "\n#{players[1].name} a gagné.e !".colorize(:green)
+            players[1].add_win_counter
             return false
-        elsif (@map[0][0] == "X" && @map[1][1] == "X" && @map[2][2] == "X") || (@map[2][0] == "X" && @map[1][1] == "X" && @map[0][2] == "X")
-            puts "\n#{players[0].name} a gagné.e !"
+        elsif (@map[0][0] == "X".colorize(:yellow) && @map[1][1] == "X".colorize(:yellow) && @map[2][2] == "X".colorize(:yellow)) || (@map[2][0] == "X".colorize(:yellow) && @map[1][1] == "X".colorize(:yellow) && @map[0][2] == "X".colorize(:yellow))
+            puts "\n#{players[0].name} a gagné.e !".colorize(:yellow)
+            players[0].add_win_counter
             return false
         else
             return true
