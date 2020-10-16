@@ -38,12 +38,7 @@ class Morpion
   end
 
   def is_win?(players)
-    if is_full?(@map)
-      players[0].add_win_counter
-      players[1].add_win_counter
-      puts "\nEgalitée !"
-      false
-    elsif (@map[0][0] == 'O'.colorize(:green) && @map[0][1] == 'O'.colorize(:green) && @map[0][2] == 'O'.colorize(:green)) || (@map[1][0] == 'O'.colorize(:green) && @map[1][1] == 'O'.colorize(:green) && @map[1][2] == 'O'.colorize(:green)) || (@map[2][0] == 'O'.colorize(:green) && @map[2][1] == 'O'.colorize(:green) && @map[2][2] == 'O'.colorize(:green))
+    if (@map[0][0] == 'O'.colorize(:green) && @map[0][1] == 'O'.colorize(:green) && @map[0][2] == 'O'.colorize(:green)) || (@map[1][0] == 'O'.colorize(:green) && @map[1][1] == 'O'.colorize(:green) && @map[1][2] == 'O'.colorize(:green)) || (@map[2][0] == 'O'.colorize(:green) && @map[2][1] == 'O'.colorize(:green) && @map[2][2] == 'O'.colorize(:green))
       puts "\n#{players[1].name} a gagné.e !".colorize(:green)
       players[1].add_win_counter
       false
@@ -66,6 +61,11 @@ class Morpion
     elsif (@map[0][0] == 'X'.colorize(:yellow) && @map[1][1] == 'X'.colorize(:yellow) && @map[2][2] == 'X'.colorize(:yellow)) || (@map[2][0] == 'X'.colorize(:yellow) && @map[1][1] == 'X'.colorize(:yellow) && @map[0][2] == 'X'.colorize(:yellow))
       puts "\n#{players[0].name} a gagné.e !".colorize(:yellow)
       players[0].add_win_counter
+      false
+    elsif is_full?(@map)
+      players[0].add_win_counter
+      players[1].add_win_counter
+      puts "\nEgalitée !"
       false
     else
       true
