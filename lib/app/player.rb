@@ -25,11 +25,11 @@ class Player
       case move
       when 'd'
         cursor[1] < 2 ? cursor[1] += 1 : next
-      when 'q'
+      when 'a'
         cursor[1] > 0 ? cursor[1] -= 1 : next
       when 's'
         cursor[0] < 2 ? cursor[0] += 1 : next
-      when 'z'
+      when 'w'
         cursor[0] > 0 ? cursor[0] -= 1 : next
       when ' '
         return cursor
